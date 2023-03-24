@@ -1,0 +1,63 @@
+.user {
+  width: 100%;
+  height: calc(100vh - 6rem);
+  padding: 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  &__table {
+    font-size: 1.5rem;
+    border-spacing: 1rem;
+    position: relative;
+
+    &--head {
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    &--row {
+    }
+
+    &--cell {
+      width: fit-content;
+      height: 3rem;
+      text-align: left;
+
+      &:last-child {
+        text-align: center;
+      }
+    }
+
+    &--icon {
+      color: $color-primary-dark;
+      cursor: pointer;
+
+      &:last-child {
+        color: darkred;
+      }
+    }
+  }
+
+  &__button--add {
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    background-color: $color-primary-dark;
+    color: white;
+    position: absolute;
+    top: -3rem;
+    right: 1rem;
+
+    &:hover {
+      background-color: rgba($color-primary-dark, 0.9);
+    }
+  }
+}

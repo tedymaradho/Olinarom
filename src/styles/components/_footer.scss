@@ -24,14 +24,15 @@
     &--button {
       width: fit-content;
       font-size: 1.4rem;
-      padding: 1rem 2.5rem;
+      padding: 1.5rem 3.5rem;
       background-color: $color-dark-blue;
       color: $color-primary-light;
       border-radius: 1.3rem;
       cursor: pointer;
+      border: none;
 
       &:hover {
-        background-color: $color-dark-blue-tint;
+        background-color: #333;
       }
     }
   }
@@ -47,7 +48,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 3rem;
+      gap: 4rem;
     }
 
     &--logo {

@@ -1,0 +1,89 @@
+.login {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  background-image: url('/src/assets/house.webp');
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: $color-primary;
+
+  &__icon {
+    font-size: 6rem;
+    color: $color-primary-dark;
+    margin-bottom: 1rem;
+  }
+
+  &__card {
+    width: 40rem;
+    height: fit-content;
+    text-align: center;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 4rem;
+    border-radius: 2rem;
+    box-shadow: 1rem 1rem 3rem 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+    color: #333;
+
+    & span {
+      font-size: 3rem;
+      color: #777;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &--input {
+      font-size: 1.5rem;
+      width: 100%;
+      height: 3.5rem;
+      padding: 0 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 1rem;
+    }
+
+    &--button {
+      width: 100%;
+      height: 3.5rem;
+      font-size: 1.5rem;
+      border-radius: 1rem;
+      cursor: pointer;
+
+      &-login {
+        background-color: $color-primary-dark;
+        border: 1px solid $color-primary-dark;
+        color: white;
+
+        &:hover {
+          background-color: rgba($color-primary-dark, 0.9);
+          border: 1px solid rgba($color-primary-dark, 0.9);
+        }
+      }
+
+      &-signup {
+        text-decoration: none;
+        color: #333;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          border: 1px solid $color-primary;
+          color: $color-primary-dark;
+        }
+      }
+    }
+  }
+}

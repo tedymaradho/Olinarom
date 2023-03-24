@@ -55,6 +55,12 @@ const Footer = () => {
             <li>Referral</li>
             <li>FAQs</li>
           </ul>
+          <ul className="footer__bottom--right-list">
+            <li>Privacy & Policy</li>
+            <li>Terms & Condition</li>
+            <li>Contact Us</li>
+            <li>Cookies Policy</li>
+          </ul>
         </div>
       </div>
       <p className="footer__copyright">
