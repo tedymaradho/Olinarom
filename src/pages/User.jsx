@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const User = () => {
   const [users, setUsers] = useState([]);
+  const { userInfo } = useSelector((state) => state.user);
+
+  const navigate = useNavigate();
 
   async function getUsers() {
     try {
@@ -16,16 +20,17 @@ const User = () => {
   }
 
   useEffect(() => {
-    getUsers();
+    if (userInfo.firstname) {
+      getUsers();
+    } else {
+      navigate('/login');
+    }
   }, []);
 
   return (
     <div className="user">
       <h1 className="user__title">User Data</h1>
       <table className="user__table">
-        <Link to="/user/add" className="user__button--add">
-          Add User
-        </Link>
         <thead>
           <tr className="user__table--head">
             <th>Username</th>
@@ -33,7 +38,12 @@ const User = () => {
             <th>Email</th>
             <th>Address</th>
             <th>Phone</th>
-            <th>Action</th>
+            <th>
+              Action
+              <Link to="/user/add" className="user__button--add">
+                Add User
+              </Link>
+            </th>
           </tr>
         </thead>
         <tbody>

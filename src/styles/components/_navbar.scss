@@ -41,7 +41,18 @@
     }
   }
 
-  &__login {
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &--name {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__login,
+  &__logout {
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;

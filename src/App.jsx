@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -7,22 +7,18 @@ import AddUser from './pages/AddUser';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import User from './pages/User';
-import { setCurrentUser } from './store/user/userAction';
+import { updateCurrentUser } from './redux/apiCalls';
 
 import './styles/main.scss';
 
 function App() {
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get('https://fakestoreapi.com/users/1');
-        setCurrentUser(res.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const dispatch = useDispatch();
 
-    fetchData();
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData && userData.token) {
+      updateCurrentUser(userData.username, userData.token, dispatch);
+    }
   }, []);
 
   return (
