@@ -1,0 +1,20 @@
+.user-detail {
+  padding: 3rem 6rem 8rem 6rem;
+  width: fit-content;
+  margin: 0 auto;
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__group {
+    font-size: 1.5rem;
+    line-height: 3;
+  }
+  &__label {
+    display: inline-block;
+    width: 13rem;
+  }
+  &__item {
+  }
+}

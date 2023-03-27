@@ -41,6 +41,9 @@ const Navbar = () => {
         {firstname ? (
           <div className="navbar__user">
             <span className="navbar__user--name">Hello {firstname}</span>
+            <Link to="/users" className="navbar__users">
+              Users
+            </Link>
             <Link to="" onClick={logoutHandler} className="navbar__logout">
               Logout
             </Link>

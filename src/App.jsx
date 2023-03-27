@@ -3,11 +3,12 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
-import AddUser from './pages/AddUser';
+import UserForm from './pages/UserForm';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import User from './pages/User';
 import { updateCurrentUser } from './redux/apiCalls';
+import UserDetail from './pages/UserDetail';
 
 import './styles/main.scss';
 
@@ -28,7 +29,9 @@ function App() {
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
           <Route path="users" element={<User />} />
-          <Route path="user/add" element={<AddUser />} />
+          <Route path="user/add" element={<UserForm title="add" />} />
+          <Route path="user/edit/:id" element={<UserForm title="edit" />} />
+          <Route path="user/:id" element={<UserDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

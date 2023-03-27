@@ -23,3 +23,27 @@ html {
 body {
   font-family: 'Inter', sans-serif;
 }
+
+.success__message,
+.error__message {
+  font-size: 1.5rem;
+  height: 3rem;
+  width: 100%;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success__message {
+  background-color: green;
+}
+
+.error__message {
+  background-color: red;
+}
+
+.hidden {
+  display: none;
+}

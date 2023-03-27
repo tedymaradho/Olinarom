@@ -35,13 +35,19 @@
       }
     }
 
-    &--icon {
+    &--icon-view {
+      color: $color-dark-blue-tint;
+      cursor: pointer;
+    }
+
+    &--icon-edit {
       color: $color-primary-dark;
       cursor: pointer;
+    }
 
-      &:last-child {
-        color: darkred;
-      }
+    &--icon-del {
+      color: darkred;
+      cursor: pointer;
     }
   }
 
@@ -58,6 +64,21 @@
 
     &:hover {
       background-color: rgba($color-primary-dark, 0.9);
+    }
+  }
+
+  &__paginate {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+
+    & > * {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

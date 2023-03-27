@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react';
 import { GiChaingun } from 'react-icons/gi';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 import { updateCurrentUser } from '../redux/apiCalls';
-import axios from 'axios';
+import { updateError } from '../redux/userSlice';
 
 const Login = () => {
   const [uname, setUname] = useState('');
   const [pass, setPass] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [alertVisible, setAlertVisible] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -22,14 +25,35 @@ const Login = () => {
 
   const loginHandler = async (e) => {
     e.preventDefault();
-    if (!uname || !pass) return;
+    if (!uname || !pass) {
+      setErrMsg('Username or password cannot be empty');
+      dispatch(updateError());
 
-    const resLogin = await axios.post('https://fakestoreapi.com/auth/login', {
-      username: uname,
-      password: pass,
-    });
+      setAlertVisible(true);
 
-    updateCurrentUser(uname, resLogin.data.token, dispatch);
+      setTimeout(() => {
+        setAlertVisible(false);
+      }, 2000);
+      return;
+    }
+
+    try {
+      const resLogin = await axios.post('https://fakestoreapi.com/auth/login', {
+        username: uname,
+        password: pass,
+      });
+
+      updateCurrentUser(uname, resLogin.data.token, dispatch);
+    } catch (error) {
+      setErrMsg('Wrong username or password');
+      dispatch(updateError());
+
+      setAlertVisible(true);
+
+      setTimeout(() => {
+        setAlertVisible(false);
+      }, 2000);
+    }
   };
 
   return (
@@ -54,6 +78,9 @@ const Login = () => {
             className="login__form--input"
             onChange={(e) => setPass(e.target.value)}
           />
+
+          {alertVisible && error && <p className="error__message">{errMsg}</p>}
+
           <button
             disabled={pending}
             type="submit"
@@ -61,10 +88,6 @@ const Login = () => {
           >
             Login
           </button>
-
-          {error && (
-            <p className="login__form--fail">Wrong username or password</p>
-          )}
 
           <Link
             to="/user/add"
