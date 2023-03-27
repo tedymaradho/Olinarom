@@ -71,56 +71,52 @@ const User = () => {
         <p className={err ? 'error__message' : 'success__message'}>{msg}</p>
       )}
       <h1 className="user__title">User Data</h1>
-      <table className="user__table">
-        <thead>
-          <tr className="user__table--head">
-            <th>Username</th>
-            <th>Fullname</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>
-              Action
-              <Link to="/user/add" className="user__button--add">
-                Add User
-              </Link>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentItems.map((user) => {
-            const { id, username, name, email, address, phone } = user;
+      <div className="user__scroll">
+        <table className="user__table">
+          <thead>
+            <tr className="user__table--head">
+              <th>Username</th>
+              <th>Fullname</th>
+              <th>Email</th>
+              <th>
+                Action
+                <Link to="/user/add" className="user__button--add">
+                  Add User
+                </Link>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentItems.map((user) => {
+              const { id, username, name, email } = user;
 
-            return (
-              <tr key={id} className="user__table--row">
-                <td className="user__table--cell">{username}</td>
-                <td className="user__table--cell">
-                  {name.firstname} {name.lastname}
-                </td>
-                <td className="user__table--cell">{email}</td>
-                <td className="user__table--cell">
-                  {address.street}, {address.city}
-                </td>
-                <td className="user__table--cell">{phone}</td>
-                <td className="user__table--cell">
-                  <Link to={`/user/${id}`}>
-                    <AiFillEye className="user__table--icon-view" />
-                  </Link>
-                  &emsp;
-                  <Link to={`/user/edit/${id}`}>
-                    <AiFillEdit className="user__table--icon-edit" />
-                  </Link>
-                  &emsp;
-                  <AiFillDelete
-                    onClick={() => delHandler(id)}
-                    className="user__table--icon-del"
-                  />
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+              return (
+                <tr key={id} className="user__table--row">
+                  <td className="user__table--cell">{username}</td>
+                  <td className="user__table--cell">
+                    {name.firstname} {name.lastname}
+                  </td>
+                  <td className="user__table--cell">{email}</td>
+                  <td className="user__table--cell">
+                    <Link to={`/user/${id}`}>
+                      <AiFillEye className="user__table--icon-view" />
+                    </Link>
+                    &emsp;
+                    <Link to={`/user/edit/${id}`}>
+                      <AiFillEdit className="user__table--icon-edit" />
+                    </Link>
+                    &emsp;
+                    <AiFillDelete
+                      onClick={() => delHandler(id)}
+                      className="user__table--icon-del"
+                    />
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
 
       <ReactPaginate
         breakLabel="..."

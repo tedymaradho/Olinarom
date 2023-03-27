@@ -15,10 +15,19 @@
     background-size: contain;
     background-repeat: no-repeat;
 
+    @include respond(phone) {
+      padding: 5rem 0.5rem;
+      background-position: bottom right;
+    }
+
     &-left--title {
+      background-color: rgba($color-primary, 0.85);
+      width: fit-content;
     }
 
     &-left--heading {
+      width: fit-content;
+      background-color: rgba($color-primary, 0.85);
     }
 
     &--button {
@@ -44,11 +53,22 @@
     display: flex;
     justify-content: space-between;
 
+    @include respond(phone) {
+      flex-direction: column;
+      padding: 3rem 0.5rem;
+      gap: 4rem;
+    }
+
     &--left {
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 4rem;
+
+      @include respond(phone) {
+        align-items: center;
+        text-align: center;
+      }
     }
 
     &--logo {
@@ -107,6 +127,13 @@
       display: flex;
       align-items: center;
       gap: 10rem;
+
+      @include respond(phone) {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+      }
 
       &-list {
         font-size: 1.5rem;

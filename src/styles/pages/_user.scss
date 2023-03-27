@@ -12,6 +12,12 @@
     margin-bottom: 2rem;
   }
 
+  &__scroll {
+    @include respond(phone) {
+      overflow-x: auto;
+    }
+  }
+
   &__table {
     font-size: 1.5rem;
     border-spacing: 1rem;

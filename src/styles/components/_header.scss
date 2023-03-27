@@ -12,9 +12,16 @@
   background-size: contain;
   background-repeat: no-repeat;
 
+  @include respond(phone) {
+    padding: 3rem 0.5rem;
+    height: fit-content;
+    gap: 3rem;
+    background-position: bottom right;
+  }
+
   &__title {
     width: fit-content;
-    background-color: $color-primary;
+    background-color: rgba($color-primary, 0.85);
   }
 
   &__subtitle {
@@ -23,7 +30,7 @@
     font-weight: 400;
     line-height: 1.5;
     color: #333;
-    background-color: $color-primary;
+    background-color: rgba($color-primary, 0.85);
   }
 
   &__search {
@@ -34,6 +41,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include respond(phone) {
+      width: 100%;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      background-color: rgba(white, 0.85);
+    }
 
     &--left {
       display: flex;
@@ -118,7 +132,12 @@
     width: fit-content;
     display: flex;
     gap: 5rem;
-    background-color: $color-primary;
+    background-color: rgba($color-primary, 0.85);
+
+    @include respond(phone) {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
 
     &--left {
       display: flex;
